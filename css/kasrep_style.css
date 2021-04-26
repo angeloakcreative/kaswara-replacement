@@ -1,3 +1,66 @@
+/*
+ *
+ * Styles for Simple Hover 
+ *
+*/
+/* 100% image widths */
 .kasrep_simple_hover_image_before, .kasrep_simple_hover_image_after {
     width: 100%;
+}
+
+/*
+ *
+ * Styles for Complex Hover 
+ *
+*/
+/* Main container */
+.kasrep_complex_hover_container {
+    --box-shadow-color: rgba(0,0,0,0.5);
+    color: rgba(0,0,0,0.5);
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+/* Top container */
+.kasrep_complex_hover_section_top, .kasrep_complex_hover_section_top img {
+    width: 100%;
+    float: left;
+    height: auto;
+    position: relative;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.kasrep_complex_hover_overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.kasrep_complex_hover_title_top {
+    height: 64px;
+    line-height: 64px;
+    color: #ffffff;
+    font-size: 24px;
+    font-family: Default;
+    font-weight: 500;
+    z-index: 99;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    white-space: nowrap;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    padding: 0 50px 2px;
+    box-sizing: border-box;
+    text-align: center;
 }
