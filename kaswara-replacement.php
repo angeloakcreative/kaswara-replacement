@@ -11,3 +11,14 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       kaswara-replacement
  */
+
+
+add_shortcode('kasrep_simple_hover', 'kasrep_simple_hover');
+function kasrep_simple_hover( $atts, $content, $shortcode_tag ) {
+    /* Define attributes array */
+    $atts = shortcode_atts( array(
+        image_one_src => '',
+        image_two_src => '',
+    ), $atts, 'kasrep_simple_hover');
+
+}
