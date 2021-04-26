@@ -4,7 +4,7 @@
  * Plugin Name:       Kaswara Replacement
  * Plugin URI:        https://angeloakcreative.com/
  * Description:       Replaces lightweight functionality from the Kaswara plugin.
- * Version:           0.1.3
+ * Version:           0.1.4
  * Author:            Angel Oak Creative, LLC
  * Author URI:        https://angeloakcreative.com/
  * License:           GPL v2 or later
@@ -21,6 +21,13 @@ function kasrep_enqueue() {
         '0.1.3',
         'false'
     );
+
+    /* Register CSS file */
+    wp_enqueue_style(
+        'kasrep_stylesheet',
+        plugins_url('css/kasrep_style.css', __FILE__)
+    );
+
 }
 add_action('wp_enqueue_scripts', 'kasrep_enqueue');
 
