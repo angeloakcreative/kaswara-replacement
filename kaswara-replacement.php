@@ -4,7 +4,7 @@
  * Plugin Name:       Kaswara Replacement
  * Plugin URI:        https://angeloakcreative.com/
  * Description:       Replaces lightweight functionality from the Kaswara plugin.
- * Version:           0.1.6
+ * Version:           0.1.7
  * Author:            Angel Oak Creative, LLC
  * Author URI:        https://angeloakcreative.com/
  * License:           GPL v2 or later
@@ -85,6 +85,37 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
     $opacity = $atts["opacity"];
     $href = esc_url($atts["href"]);
 
+    /* Define $content conditionally */
+    if ($atts["target_new_page"] === '1') {
+        $target = '_blank';
+        $rel = 'noopener noreferrer';
 
+        $content = "<div class='kasrep_complex_hover_container'>";
+        $content .= "<a href=$href target=$target rel=$rel>";
+        $content .= "<div class=''kasrep_complex_hover_section_top>";
+            $content .= "<img class='kasrep_complex_hover_image' src=$img_src />";
+            $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hex; opacity: $opacity;'></div>";
+            $content .= "<div class='kasrep_complex_hover_title_top'>$title_top</div>";
+        $content .= "</div>";
+        $content .= "<div class=''kasrep_complex_hover_section_bottom>";
+            $content .= "<div class='kasrep_complex_hover_title_bottom'>$title_bottom</div>";
+        $content .= "</div>";
+        $content .= "</a>";
+        $content .= "</div>";
+    } else {
+        $content = "<div class='kasrep_complex_hover_container'>";
+        $content .= "<a href=$href>";
+        $content .= "<div class=''kasrep_complex_hover_section_top>";
+            $content .= "<img class='kasrep_complex_hover_image' src=$img_src />";
+            $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hex; opacity: $opacity;'></div>";
+            $content .= "<div class='kasrep_complex_hover_title_top'>$title_top</div>";
+        $content .= "</div>";
+        $content .= "<div class=''kasrep_complex_hover_section_bottom>";
+            $content .= "<div class='kasrep_complex_hover_title_bottom'>$title_bottom</div>";
+        $content .= "</div>";
+        $content .= "</a>";
+        $content .= "</div>";
+    }
+    
     return $content;
 }
