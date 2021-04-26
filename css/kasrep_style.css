@@ -21,6 +21,11 @@
     margin-bottom: 50px;
 }
 
+/* Container link */
+.kasrep_complex_hover_container a {
+    text-decoration: none;
+}
+
 /* Top container */
 .kasrep_complex_hover_section_top, .kasrep_complex_hover_section_top img {
     width: 100%;
