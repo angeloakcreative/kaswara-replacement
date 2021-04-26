@@ -20,7 +20,7 @@ function kasrep_simple_hover( $atts, $content, $shortcode_tag ) {
         'image_one_src' => '',
         'image_two_src' => '',
         'href' => '',
-        'target_new_page' => TRUE,
+        'target_new_page' => '1',
     ), $atts, 'kasrep_simple_hover');
 
     $img_one_src = esc_url($atts["image_one_src"]);
@@ -28,7 +28,7 @@ function kasrep_simple_hover( $atts, $content, $shortcode_tag ) {
     $href = esc_url($atts["href"]);
 
     /* Define $content conditionally */
-    if ($atts["target_new_page"]) {
+    if ($atts["target_new_page"] === '1') {
         $target = '_blank';
         $rel = 'noopener noreferrer';
 
