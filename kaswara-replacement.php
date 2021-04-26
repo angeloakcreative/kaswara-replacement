@@ -17,10 +17,10 @@ add_shortcode('kasrep_simple_hover', 'kasrep_simple_hover');
 function kasrep_simple_hover( $atts, $content, $shortcode_tag ) {
     /* Define attributes array */
     $atts = shortcode_atts( array(
-        image_one_src => '',
-        image_two_src => '',
-        href => '',
-        target_new_page => TRUE,
+        'image_one_src' => '',
+        'image_two_src' => '',
+        'href' => '',
+        'target_new_page' => TRUE,
     ), $atts, 'kasrep_simple_hover');
 
     $img_one_src = esc_url($atts["image_one_src"]);
