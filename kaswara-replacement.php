@@ -19,13 +19,29 @@ function kasrep_simple_hover( $atts, $content, $shortcode_tag ) {
     $atts = shortcode_atts( array(
         image_one_src => '',
         image_two_src => '',
+        href => '',
+        target_new_page => TRUE,
     ), $atts, 'kasrep_simple_hover');
 
     $img_one_src = esc_url($atts["image_one_src"]);
     $img_two_src = esc_url($atts["image_two_src"]);
+    $href = esc_url($atts["href"]);
 
-    $content = "<img class='kasrep_simple_hover_image_before' src=$img_one_src />";
-    $content .= "<img class='kasrep_simple_hover_image_after' src=$img_two_src />";
+    /* Define $content conditionally */
+    if ($atts["target_new_page"]) {
+        $target = '_blank';
+        $rel = 'noopener noreferrer';
+
+        $content = "<a href=$href target=$target rel=$rel>";
+        $content .= "<img class='kasrep_simple_hover_image_before' src=$img_one_src />";
+        $content .= "<img class='kasrep_simple_hover_image_after' src=$img_two_src />";
+        $content .="</a>";
+    } else {
+        $content = "<a href=$href>";
+        $content .= "<img class='kasrep_simple_hover_image_before' src=$img_one_src />";
+        $content .= "<img class='kasrep_simple_hover_image_after' src=$img_two_src />";
+        $content .="</a>";
+    }
 
     return $content;
 }
