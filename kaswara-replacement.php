@@ -4,7 +4,7 @@
  * Plugin Name:       Kaswara Replacement
  * Plugin URI:        https://angeloakcreative.com/
  * Description:       Replaces lightweight functionality from the Kaswara plugin.
- * Version:           0.1.4
+ * Version:           0.1.5
  * Author:            Angel Oak Creative, LLC
  * Author URI:        https://angeloakcreative.com/
  * License:           GPL v2 or later
@@ -61,6 +61,26 @@ function kasrep_simple_hover( $atts, $content, $shortcode_tag ) {
         $content .= "<img class='kasrep_simple_hover_image_after' src=$img_two_src />";
         $content .="</a>";
     }
+
+    return $content;
+}
+
+add_shortcode('kasrep_complex_hover', 'kasrep_complex_hover');
+function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
+    /* Define attributes array */
+    $atts = shortcode_atts( array(
+        'image_src' => '',
+        'title' => '',
+        'opacity' => '',
+        'hex' => '',
+        'href' => '',
+        'target_new_page' => '1',
+    ), $atts, 'kasrep_complex_hover');
+
+    $img_src = esc_url($atts["image_src"]);
+    $hex = $atts["hex"];
+    $opacity = $atts["opacity"];
+    $href = esc_url($atts["href"]);
 
     return $content;
 }
