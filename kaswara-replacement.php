@@ -21,4 +21,11 @@ function kasrep_simple_hover( $atts, $content, $shortcode_tag ) {
         image_two_src => '',
     ), $atts, 'kasrep_simple_hover');
 
+    $img_one_src = esc_url($atts["image_one_src"]);
+    $img_two_src = esc_url($atts["image_two_src"]);
+
+    $content = "<img class='kasrep_simple_hover_image_before' src=$img_one_src />";
+    $content .= "<img class='kasrep_simple_hover_image_after' src=$img_two_src />";
+
+    return $content;
 }
