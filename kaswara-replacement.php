@@ -12,6 +12,18 @@
  * Text Domain:       kaswara-replacement
  */
 
+function kasrep_enqueue() {
+    /* Register JavaScript files to create hovers */
+    wp_enqueue_script(
+        'kasrep_simple_hover_script', 
+        plugins_url('js/kasrep_simple_hover.js', __FILE__), 
+        array('jquery'),
+        '0.1.0',
+        'false'
+    );
+}
+add_action('wp_enqueue_scripts', 'kasrep_enqueue');
+
 
 add_shortcode('kasrep_simple_hover', 'kasrep_simple_hover');
 function kasrep_simple_hover( $atts, $content, $shortcode_tag ) {
