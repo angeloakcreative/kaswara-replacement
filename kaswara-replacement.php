@@ -4,7 +4,7 @@
  * Plugin Name:       Kaswara Replacement
  * Plugin URI:        https://angeloakcreative.com/
  * Description:       Replaces lightweight functionality from the Kaswara plugin.
- * Version:           0.1.8
+ * Version:           0.1.9
  * Author:            Angel Oak Creative, LLC
  * Author URI:        https://angeloakcreative.com/
  * License:           GPL v2 or later
@@ -97,7 +97,7 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
             $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hex; opacity: $opacity;'></div>";
             $content .= "<div class='kasrep_complex_hover_title_top'>$title_top</div>";
         $content .= "</div>";
-        $content .= "<div class=''kasrep_complex_hover_section_bottom>";
+        $content .= "<div class='kasrep_complex_hover_section_bottom'>";
             $content .= "<div class='kasrep_complex_hover_title_bottom'>$title_bottom</div>";
         $content .= "</div>";
         $content .= "</a>";
@@ -110,7 +110,7 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
             $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hex; opacity: $opacity;'></div>";
             $content .= "<div class='kasrep_complex_hover_title_top'>$title_top</div>";
         $content .= "</div>";
-        $content .= "<div class=''kasrep_complex_hover_section_bottom>";
+        $content .= "<div class='kasrep_complex_hover_section_bottom'>";
             $content .= "<div class='kasrep_complex_hover_title_bottom'>$title_bottom</div>";
         $content .= "</div>";
         $content .= "</a>";
