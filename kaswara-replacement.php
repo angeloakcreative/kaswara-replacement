@@ -4,7 +4,7 @@
  * Plugin Name:       Kaswara Replacement
  * Plugin URI:        https://angeloakcreative.com/
  * Description:       Replaces lightweight functionality from the Kaswara plugin.
- * Version:           0.1.16
+ * Version:           0.1.17
  * Author:            Angel Oak Creative, LLC
  * Author URI:        https://angeloakcreative.com/
  * License:           GPL v2 or later
@@ -84,6 +84,7 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
         'title_bottom_color' => '#c4ab81',
         'hover-opacity' => '0.50',
         'hover-color' => '#000000',
+        'bottom_bar_color' => '#ffffff',
         'href' => '',
         'target_new_page' => '1',
     ), $atts, 'kasrep_complex_hover');
@@ -95,6 +96,7 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
     $title_bottom_color = $atts["title_bottom_color"];
     $hover_color = $atts["hover-color"];
     $opacity = $atts["hover-opacity"];
+    $bottom_bar_color = $atts["bottom_bar_color"];
     $href = esc_url($atts["href"]);
 
     /* Define $content conditionally */
@@ -109,7 +111,7 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
             $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hover_color; opacity: $opacity;'></div>";
             $content .= "<div class='kasrep_complex_hover_title_top' style='color: $title_top_color'>$title_top</div>";
         $content .= "</div>";
-        $content .= "<div class='kasrep_complex_hover_section_bottom'>";
+        $content .= "<div class='kasrep_complex_hover_section_bottom' style='background: $bottom_bar_color;'>";
             $content .= "<div class='kasrep_complex_hover_title_bottom' style='color: $title_bottom_color;'>$title_bottom</div>";
         $content .= "</div>";
         $content .= "</a>";
@@ -122,8 +124,8 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
             $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hover_color; opacity: $opacity;'></div>";
             $content .= "<div class='kasrep_complex_hover_title_top' style='color: $title_top_color;'>$title_top</div>";
         $content .= "</div>";
-        $content .= "<div class='kasrep_complex_hover_section_bottom'>";
-        $content .= "<div class='kasrep_complex_hover_title_bottom' style='color: $title_bottom_color;'>$title_bottom</div>";
+        $content .= "<div class='kasrep_complex_hover_section_bottom' style='background: $bottom_bar_color;'>";
+            $content .= "<div class='kasrep_complex_hover_title_bottom' style='color: $title_bottom_color;'>$title_bottom</div>";
         $content .= "</div>";
         $content .= "</a>";
         $content .= "</div>";
