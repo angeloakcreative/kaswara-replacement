@@ -4,7 +4,7 @@
  * Plugin Name:       Kaswara Replacement
  * Plugin URI:        https://angeloakcreative.com/
  * Description:       Replaces lightweight functionality from the Kaswara plugin.
- * Version:           0.1.20
+ * Version:           0.1.21
  * Author:            Angel Oak Creative, LLC
  * Author URI:        https://angeloakcreative.com/
  * License:           GPL v2 or later
@@ -111,9 +111,9 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
         $rel = 'noopener noreferrer';
 
         $content = "<div class='kasrep_complex_hover_container'>";
-        $content .= "<a href=$href target=$target rel=$rel>";
+        $content .= "<a href='$href' target='$target' rel='$rel'>";
         $content .= "<div class='kasrep_complex_hover_section_top'>";
-            $content .= "<img class='kasrep_complex_hover_image' src=$img_src alt=$alt />";
+            $content .= "<img class='kasrep_complex_hover_image' src='$img_src' alt='$alt' />";
             $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hover_color; opacity: $opacity;'></div>";
             $content .= "<div class='kasrep_complex_hover_title_top' style='color: $title_top_color'>$title_top</div>";
         $content .= "</div>";
@@ -124,9 +124,9 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
         $content .= "</div>";
     } else {
         $content = "<div class='kasrep_complex_hover_container'>";
-        $content .= "<a href=$href>";
+        $content .= "<a href='$href'>";
         $content .= "<div class='kasrep_complex_hover_section_top'>";
-            $content .= "<img class='kasrep_complex_hover_image' src=$img_src alt=$alt />";
+            $content .= "<img class='kasrep_complex_hover_image' src='$img_src' alt='$alt' />";
             $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hover_color; opacity: $opacity;'></div>";
             $content .= "<div class='kasrep_complex_hover_title_top' style='color: $title_top_color;'>$title_top</div>";
         $content .= "</div>";
