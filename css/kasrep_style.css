@@ -88,3 +88,10 @@
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+
+.kasrep_complex_hover_title_bottom_subtext {
+    color: #777777;
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 20px;
+}
