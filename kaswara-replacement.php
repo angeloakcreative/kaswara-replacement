@@ -4,7 +4,7 @@
  * Plugin Name:       Kaswara Replacement
  * Plugin URI:        https://angeloakcreative.com/
  * Description:       Replaces lightweight functionality from the Kaswara plugin.
- * Version:           0.1.12
+ * Version:           0.1.13
  * Author:            Angel Oak Creative, LLC
  * Author URI:        https://angeloakcreative.com/
  * License:           GPL v2 or later
@@ -80,8 +80,8 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
         'image_src' => '',
         'title_top' => '',
         'title_bottom' => '',
-        'opacity' => '',
-        'hex' => '',
+        'hover-opacity' => '',
+        'hover-color' => '',
         'href' => '',
         'target_new_page' => '1',
     ), $atts, 'kasrep_complex_hover');
@@ -89,8 +89,8 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
     $img_src = esc_url($atts["image_src"]);
     $title_top = $atts["title_top"];
     $title_bottom = $atts["title_bottom"];
-    $hex = $atts["hex"];
-    $opacity = $atts["opacity"];
+    $hover_color = $atts["hover-color"];
+    $opacity = $atts["hover-opacity"];
     $href = esc_url($atts["href"]);
 
     /* Define $content conditionally */
@@ -102,7 +102,7 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
         $content .= "<a href=$href target=$target rel=$rel>";
         $content .= "<div class='kasrep_complex_hover_section_top'>";
             $content .= "<img class='kasrep_complex_hover_image' src=$img_src />";
-            $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hex; opacity: $opacity;'></div>";
+            $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hover_color; opacity: $opacity;'></div>";
             $content .= "<div class='kasrep_complex_hover_title_top'>$title_top</div>";
         $content .= "</div>";
         $content .= "<div class='kasrep_complex_hover_section_bottom'>";
@@ -115,7 +115,7 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
         $content .= "<a href=$href>";
         $content .= "<div class='kasrep_complex_hover_section_top'>";
             $content .= "<img class='kasrep_complex_hover_image' src=$img_src />";
-            $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hex; opacity: $opacity;'></div>";
+            $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hover_color; opacity: $opacity;'></div>";
             $content .= "<div class='kasrep_complex_hover_title_top'>$title_top</div>";
         $content .= "</div>";
         $content .= "<div class='kasrep_complex_hover_section_bottom'>";
