@@ -4,7 +4,7 @@
  * Plugin Name:       Kaswara Replacement
  * Plugin URI:        https://angeloakcreative.com/
  * Description:       Replaces lightweight functionality from the Kaswara plugin.
- * Version:           0.1.25
+ * Version:           0.1.26
  * Author:            Angel Oak Creative, LLC
  * Author URI:        https://angeloakcreative.com/
  * License:           GPL v2 or later
@@ -86,6 +86,8 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
         'title_top_color' => '#ffffff',
         'title_bottom' => '',
         'title_bottom_color' => '#c4ab81',
+        'title_bottom_subtext' => 'none',
+        'title_bottom_subtext_color' => '#777777',
         'hover-opacity' => '0.50',
         'hover-color' => '#000000',
         'bottom_bar_color' => '#ffffff',
@@ -99,16 +101,25 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
     $title_top_color = esc_attr($atts["title_top_color"]);
     $title_bottom = esc_attr($atts["title_bottom"]);
     $title_bottom_color = esc_attr($atts["title_bottom_color"]);
+    $title_bottom_subtext = '';
+    $title_bottom_subtext_color = '';
+        if ($atts["title_bottom_subtext"] === 'none') {
+            $title_bottom_subtext = FALSE;
+            $title_bottom_subtext_color = FALSE;
+        } else {
+            $title_bottom_subtext = esc_attr($atts["title_bottom_subtext"]);
+            $title_bottom_subtext_color = esc_attr($atts["title_bottom_subtext_color"]);
+        }
     $hover_color = esc_attr($atts["hover-color"]);
     $opacity = esc_attr($atts["hover-opacity"]);
     $bottom_bar_color = esc_attr($atts["bottom_bar_color"]);
     $alt = esc_attr($atts["alt"]);
     $href = '';
-    if ($atts["href"] === 'none') {
-        $href = FALSE;
-    } else {
-        $href = esc_url($atts["href"]);
-    }
+        if ($atts["href"] === 'none') {
+            $href = FALSE;
+        } else {
+            $href = esc_url($atts["href"]);
+        }
 
     /* Define $content conditionally */
     if ($atts["target_new_page"] === '1') {
