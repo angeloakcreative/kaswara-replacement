@@ -4,7 +4,7 @@
  * Plugin Name:       Kaswara Replacement
  * Plugin URI:        https://angeloakcreative.com/
  * Description:       Replaces lightweight functionality from the Kaswara plugin.
- * Version:           0.1.18
+ * Version:           0.1.19
  * Author:            Angel Oak Creative, LLC
  * Author URI:        https://angeloakcreative.com/
  * License:           GPL v2 or later
@@ -45,13 +45,17 @@ function kasrep_simple_hover( $atts, $content, $shortcode_tag ) {
     /* Define attributes array */
     $atts = shortcode_atts( array(
         'image_one_src' => '',
+        'image_one_alt' => 'Hover image',
         'image_two_src' => '',
+        'image_one_alt' => 'Hover image',
         'href' => '',
         'target_new_page' => '1',
     ), $atts, 'kasrep_simple_hover');
 
     $img_one_src = esc_url($atts["image_one_src"]);
+    $img_one_alt = ($atts["image_one_alt"]);
     $img_two_src = esc_url($atts["image_two_src"]);
+    $img_two_alt = ($atts["image_two_alt"]);
     $href = esc_url($atts["href"]);
 
     /* Define $content conditionally */
@@ -60,13 +64,13 @@ function kasrep_simple_hover( $atts, $content, $shortcode_tag ) {
         $rel = 'noopener noreferrer';
 
         $content = "<a href=$href target=$target rel=$rel>";
-        $content .= "<img class='kasrep_simple_hover_image_before' src=$img_one_src />";
-        $content .= "<img class='kasrep_simple_hover_image_after' src=$img_two_src />";
+        $content .= "<img class='kasrep_simple_hover_image_before' src=$img_one_src alt=$img_one_alt />";
+        $content .= "<img class='kasrep_simple_hover_image_after' src=$img_two_src alt=$img_two_alt />";
         $content .="</a>";
     } else {
         $content = "<a href=$href>";
-        $content .= "<img class='kasrep_simple_hover_image_before' src=$img_one_src />";
-        $content .= "<img class='kasrep_simple_hover_image_after' src=$img_two_src />";
+        $content .= "<img class='kasrep_simple_hover_image_before' src=$img_one_src alt=$img_one_alt />";
+        $content .= "<img class='kasrep_simple_hover_image_after' src=$img_two_src alt=$img_two_alt />";
         $content .="</a>";
     }
 
