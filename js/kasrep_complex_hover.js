@@ -1,4 +1,4 @@
-// File version: 0.1.2
+// File version: 0.1.3
 
 jQuery(document).ready(function($) {
     // Hide overlay and top title on Document load
@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
     // Handle hover event
     $('.kasrep_complex_hover_container').hover(function(e) {
         $(this).toggleClass('kasrep_complex_hover_container_shadow');
-        $('.kasrep_complex_hover_overlay').toggle();
-        $('.kasrep_complex_hover_title_top').toggle();
+        $(this).find('.kasrep_complex_hover_overlay').toggle();
+        $(this).find('.kasrep_complex_hover_title_top').toggle();
     });
 });
