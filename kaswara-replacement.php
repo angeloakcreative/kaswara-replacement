@@ -4,7 +4,7 @@
  * Plugin Name:       Kaswara Replacement
  * Plugin URI:        https://angeloakcreative.com/
  * Description:       Replaces lightweight functionality from the Kaswara plugin.
- * Version:           0.1.26
+ * Version:           0.1.27
  * Author:            Angel Oak Creative, LLC
  * Author URI:        https://angeloakcreative.com/
  * License:           GPL v2 or later
@@ -103,13 +103,8 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
     $title_bottom_color = esc_attr($atts["title_bottom_color"]);
     $title_bottom_subtext = '';
     $title_bottom_subtext_color = '';
-        if ($atts["title_bottom_subtext"] === 'none') {
-            $title_bottom_subtext = FALSE;
-            $title_bottom_subtext_color = FALSE;
-        } else {
-            $title_bottom_subtext = esc_attr($atts["title_bottom_subtext"]);
-            $title_bottom_subtext_color = esc_attr($atts["title_bottom_subtext_color"]);
-        }
+    $title_bottom_subtext = esc_attr($atts["title_bottom_subtext"]);
+    $title_bottom_subtext_color = esc_attr($atts["title_bottom_subtext_color"]);
     $hover_color = esc_attr($atts["hover-color"]);
     $opacity = esc_attr($atts["hover-opacity"]);
     $bottom_bar_color = esc_attr($atts["bottom_bar_color"]);
@@ -122,7 +117,24 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
         }
 
     /* Define $content conditionally */
-    if ($atts["target_new_page"] === '1') {
+    if ($atts["target_new_page"] === '1' && $title_bottom_subtext !== 'none') {
+        $target = '_blank';
+        $rel = 'noopener noreferrer';
+
+        $content = "<div class='kasrep_complex_hover_container'>";
+        $content .= "<a href='$href' target='$target' rel='$rel'>";
+        $content .= "<div class='kasrep_complex_hover_section_top'>";
+            $content .= "<img class='kasrep_complex_hover_image' src='$img_src' alt='$alt' />";
+            $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hover_color; opacity: $opacity;'></div>";
+            $content .= "<div class='kasrep_complex_hover_title_top' style='color: $title_top_color'>$title_top</div>";
+        $content .= "</div>";
+        $content .= "<div class='kasrep_complex_hover_section_bottom' style='background: $bottom_bar_color;'>";
+            $content .= "<div class='kasrep_complex_hover_title_bottom' style='color: $title_bottom_color;'>$title_bottom</div>";
+            $content .= "<div class='kasrep_complex_hover_title_bottom_subtext' style='color: $title_bottom_subtext_color;'>$title_bottom_subtext</div>";
+        $content .= "</div>";
+        $content .= "</a>";
+        $content .= "</div>";
+    } elseif ($atts["target_new_page"] === '1' && $title_bottom_subtext === 'none') {
         $target = '_blank';
         $rel = 'noopener noreferrer';
 
@@ -153,7 +165,7 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
         $content .= "</div>";
     }
 
-    if (!$href) {
+    if (!$href && $title_bottom_subtext === 'none') {
         $content = "<div class='kasrep_complex_hover_container'>";
         $content .= "<div class='kasrep_complex_hover_section_top'>";
             $content .= "<img class='kasrep_complex_hover_image' src='$img_src' alt='$alt' />";
@@ -164,7 +176,19 @@ function kasrep_complex_hover( $atts, $content, $shortcode_tag ) {
             $content .= "<div class='kasrep_complex_hover_title_bottom' style='color: $title_bottom_color;'>$title_bottom</div>";
         $content .= "</div>";
         $content .= "</div>";
-    } 
+    } elseif (!$href && $title_bottom_subtext !== 'none') {
+        $content = "<div class='kasrep_complex_hover_container'>";
+        $content .= "<div class='kasrep_complex_hover_section_top'>";
+            $content .= "<img class='kasrep_complex_hover_image' src='$img_src' alt='$alt' />";
+            $content .= "<div class='kasrep_complex_hover_overlay' style='background: $hover_color; opacity: $opacity;'></div>";
+            $content .= "<div class='kasrep_complex_hover_title_top' style='color: $title_top_color'>$title_top</div>";
+        $content .= "</div>";
+        $content .= "<div class='kasrep_complex_hover_section_bottom' style='background: $bottom_bar_color;'>";
+            $content .= "<div class='kasrep_complex_hover_title_bottom' style='color: $title_bottom_color;'>$title_bottom</div>";
+            $content .= "<div class='kasrep_complex_hover_title_bottom_subtext' style='color: $title_bottom_subtext_color;'>$title_bottom_subtext</div>";
+        $content .= "</div>";
+        $content .= "</div>";
+    }
     
     return $content;
 }
